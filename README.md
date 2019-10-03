@@ -1,5 +1,7 @@
 # car_media
 
+  **page max-width 1280px as per design given**
+
 1) Banner background-image in Find Your Dream car section is not their in zeplin, 
    so i download Somewhat Similer image and used in this task.
    
