@@ -1,0 +1,1179 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------
+  [Table of contents]
+  * To keep an overview of structure of your code, we make use of table of 
+  * content. Table of content is use display the overall tree structure of your
+  * Layout. 
+  * (NOTE: Remove this commented code once you start developing the code.
+  * Remove the following table of content and add your own as this is just and 
+  * example to let you know)
+
+  1. CSS Reset Code
+    1.1. Eric Meyers Reset/HTML5 display-role reset for older browsers
+    1.2. Clear Fix
+    1.3. Font class declaration
+  2. Body
+  3. Header / .header
+    2.1. Navigation / .navbar
+  4. Content / .content
+    4.1. Left column / .leftcolumn
+    4.2. Right column / .rightcolumn
+    4.3. Sidebar / .sidebar
+      4.3.1. RSS / .rss
+      4.3.2. Search / .search
+      4.3.3. Boxes / .box
+      4.3.4. Sideblog / .sideblog
+      4.3.5. Advertisements / .ads
+  5. Footer / .footer
+  ------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Color codes]
+  * Mention the color code you have used in your html document for the respective
+  * elements given as follow. 
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following color code and add your own as this is just and 
+  * example to let you know)
+
+  Header nav: #e5e5df (Cararra)
+  Header nav a (hover): #fff (white)
+  Header nav a (active): #fff (white)
+  -------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Typography]
+  * Mention the Typography you have used in your html document for the respective
+  * elements given as follow.
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following typography and add your own as this is just and 
+  * example to let you know)
+
+  Header nav a: 16px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  View-register li a : 12px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  -------------------------------------------------------------------*/
+
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+   blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+   ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+   dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+   tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+   figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+   time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+   }
+
+   /* HTML5 display-role reset for older browsers */
+   article, aside, details, figcaption, figure,
+   footer, header, hgroup, menu, nav, section {
+    display: block;
+   }
+
+   /* Force scrollbar */
+   html { overflow-y: scroll; }
+
+   /* Align radios and text inputs with their label */
+
+   input[type='radio'] { vertical-align: text-bottom; }
+
+   /* Hand cursor on clickable input elements */
+   label,
+   input[type='button'],
+   input[type='submit'],
+   button {
+    cursor: pointer;
+   }
+
+   strong {
+    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
+   }
+
+   em { font-style: italic; }
+
+   img {
+    border: 0;
+    vertical-align: middle;
+   }
+
+   sub,
+   sup {
+    vertical-align: baseline;
+    position: relative;
+    font-size: 55%;
+    line-height: 0;
+   }
+
+   sup { top: -.7em; }
+
+   sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+========================================================================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+
+.cf { *zoom: 1; }
+
+/* 1.3. Font class declaration
+========================================================================== */
+/*
+ * Mention the font property (eg: font-family, font-size, font-weight, font-style
+ * etc) that have been commonly used in the html document. Make a class of it and
+ * apply to the element wherever it is needed. If any single property in changed,
+ * then override only that property in the particular class which is used for the
+ * element.
+ * (NOTE: Remove this commented code once you start 
+ * developing the code. Remove the following font class and add your own
+ * as this is just and example to let you know. If there is only one font family
+ * followed throughout the site, then menstion the font property in body. No need
+ * of creating an extra class for it) */
+
+ .futura-bold-font {
+  font-family: 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+ }
+
+
+ /* =======  styling goes below ======= */
+ * {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px ; 10px/16px = 62.5%  browser default 16px*/
+  
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+body {
+  background: black;
+}
+
+ /* ======= header styling goes below ======= */
+ header {
+  -webkit-box-shadow: 0 .4rem 1rem 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 .4rem 1rem 0 rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  padding: 1.2rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* logo */
+h1 {
+  padding: 1rem 0;
+  -webkit-box-flex:0;
+      -ms-flex:0 0 16.8%;
+          flex:0 0 16.8%;
+  border-radius: 1rem;
+  background-color: #091824;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1 a {
+  text-decoration: none;
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #ffffff;
+}
+/* nav */
+nav {
+  -webkit-box-flex:0;
+      -ms-flex:0 0 26.8%;
+          flex:0 0 26.8%;
+  margin-left: -19.2%;
+}
+.navigation {
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navigation a {
+  text-transform: uppercase;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+}
+
+.navigation a:hover {
+  color:  #e41a1a;
+}
+/* search */
+
+.search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 19.5%;
+          flex: 0 0 19.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.search__input {
+  opacity: 0.4;
+  border-radius: 4px;
+  border: solid 1px #d2d4df;
+  width: 100%;
+  height: 3rem;
+  padding: .9rem 1.2rem;
+  margin-right: -3.5rem;
+  outline: none;
+}
+
+.search__input::-webkit-input-placeholder {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+ 
+}
+
+.search__input::-moz-placeholder {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+ 
+}
+
+.search__input:-ms-input-placeholder {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+ 
+}
+
+.search__input::-ms-input-placeholder {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+ 
+}
+
+.search__input::placeholder {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #525252;
+ 
+}
+
+.search__button {
+  background: #ffffff;
+  border: none;
+  outline: none;
+}
+
+/* FIND CAR */
+.findcar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(255, 255, 255, 0.7)),to(#ffffff)), url(../images/map-bg.png);
+  background-image: -o-linear-gradient(right top, rgba(255, 255, 255, 0.7),#ffffff), url(../images/map-bg.png);
+  background-image: linear-gradient(to Left bottom, rgba(255, 255, 255, 0.7),#ffffff), url(../images/map-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 7rem 0 5.2rem 4rem;
+
+}
+
+.findcar__1 {
+  -ms-flex-preferred-size: 44%;
+      flex-basis: 44%
+}
+
+.findcar__2 {
+  -ms-flex-preferred-size: 56%;
+      flex-basis: 56%;
+  overflow: hidden;
+}
+.findcar__1 h2 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 3.2rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #071622;
+  margin-right: -6rem;
+  margin-bottom: 1.2rem;
+}
+
+.findcar__1--quote  span {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #e41a1a;
+}
+
+.findcar__1--quote {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #071622;
+  margin-bottom: 2.7rem;
+}
+
+.findcar__1--about {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  color: #262626;
+  width: 99%;
+  margin-bottom: 2.6rem;
+}
+/* FIND CAR DROP DOWN */
+.drop-down {
+  height: 5rem;
+  margin: 0;
+  border-radius: 1rem;
+  background: #071622;
+  -webkit-box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 1);
+          box-shadow: inset 0 0 13px 0 rgba(0, 0, 0, 1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drop-down-title {
+  cursor: pointer;
+  padding: .7rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.drop-down-title:not(:last-child){
+  border-right:  solid 1px rgba(242, 242, 242, 0.15);
+}
+.drop-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  display: block;
+  margin-right: 2rem;
+
+}
+/* FEATURED CAR */
+.featured__car {
+  background: white;
+  padding-bottom: 10rem;
+  height: auto;
+}
+
+h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: .8rem;
+  text-align: center;
+  font-size: 1.8rem;
+  background: -webkit-gradient(linear, right top, left top, from(#e41a1a), to(#262626));
+  background: -o-linear-gradient(right, #e41a1a, #262626);
+  background: linear-gradient(to left, #e41a1a, #262626);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4.3rem;
+}
+
+/* SLICK SLIDER */
+.slider {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.slick-list {
+  padding: 1rem;
+}
+
+.slide-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 39rem;
+  height: auto;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 3px 20px 0 rgba(38, 38, 38, 0.08);
+          box-shadow: 0 3px 20px 0 rgba(38, 38, 38, 0.08);
+}
+
+.slide-item figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slide-item figure img{
+  max-width: 18rem;
+}
+
+.slide-item span {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #0a1925;;
+  display: block;
+  text-align: center;
+}
+
+figcaption {
+  font-family: 'Nunito Sans', sans-serif;
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #0b1a26;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 1.5rem 0 .6rem 0;
+}
+
+.slide-item .circle {
+  height: 4rem;
+  width: 4rem;
+  background-color: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #0b1a26;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position:absolute;
+  top:3.6rem;
+}
+
+.slick-initialized .slick-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slide-item.slick-current.slick-active {
+  background-color: #0a1722;
+}
+
+.slide-item.slick-current.slick-active figcaption {
+  color: #ffffff;
+}
+
+.slide-item.slick-current.slick-active span {
+  color: #ffffff;
+}
+
+.slide-item.slick-current.slick-active .circle {
+  color: #ff2a2a;
+  background-color: #091824;
+}
+
+.wrp {
+  max-width: 126.1rem;
+  margin: 0 auto;
+  
+}
+
+.next-arrow {
+  background-image: url(../images/ic-forward.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 3.7rem;
+  height: 3.7rem;
+  border-radius: 10px;
+  background-color: #f5f6f6;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: rotateY(-50%) !important;
+          transform: rotateY(-50%) !important;
+  right: 0;
+  z-index: 99;
+}
+
+.prev-arrow {
+  background-image: url(../images/ic-back.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 3.7rem;
+  height: 3.7rem;
+  border-radius: 10px;
+  background-color: #e41a1a;
+  position: absolute;
+  top: 40%;
+  -webkit-transform: rotateY(-50%) !important;
+          transform: rotateY(-50%) !important;
+  left: 0;
+  z-index: 99;
+}
+/* FIND CAR BY BODY TYPE */
+.car__body {
+  background-image: url(../images/body-style-bg.png);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-color: #fff;
+  padding-bottom: 8rem;
+}
+
+.car__body-heading {
+  color: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: .56rem;
+  display: block;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 2.7rem 0;
+}
+
+.car__body-quote {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.car__body-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.car__body-type  li {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.car__body-type a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: auto;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #081722;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+}
+
+.car__body-type img {
+  margin-bottom: 2rem;
+  margin-top: 3.9rem;
+}
+/*  HISTORY REPORT */
+
+.history__report {
+  background-image: url(../images/vin-bg-1280.png);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: right;
+  background-color:#ffffff;
+  height: 52.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  
+}
+
+.history__report-check {
+  background-color: #ffffff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  max-width: 56rem;
+  max-height: 42.1rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 30px 40px 0 rgba(38, 38, 38, 0.07);
+          box-shadow: 0 30px 40px 0 rgba(38, 38, 38, 0.07);
+  margin-left: 3.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding:7rem 7.5rem 7rem 4rem;
+  
+}
+.history__report h5 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: .1rem;
+  font-size: 3.1rem;
+  background-image: -o-linear-gradient(184deg, #e41a1a, #262626);
+  background-image: linear-gradient(266deg, #e41a1a, #262626);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.9rem;
+}
+
+.history__report-check p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0a1722;
+  max-width: 44.3rem;
+  margin-bottom:4rem;
+}
+
+.history__report-check span {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0a1722;
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.history__report-check input {
+  border-radius: 4px;
+  border: solid 1px #f0f0f0;
+  background-color: #f7f8f9;
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  margin-bottom: 2.5rem
+}
+
+.history__report-check input::-webkit-input-placeholder {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #262626;
+}
+
+.history__report-check input::-moz-placeholder {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #262626;
+}
+
+.history__report-check input:-ms-input-placeholder {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #262626;
+}
+
+.history__report-check input::-ms-input-placeholder {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #262626;
+}
+
+.history__report-check input::placeholder {
+  opacity: 0.8;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #262626;
+}
+
+.history__report-check button {
+  border-radius: 4px;
+  background-image: -o-linear-gradient(195deg, #e41a1a, #262626);
+  background-image: linear-gradient(255deg, #e41a1a, #262626);
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  padding: 1rem 3.8rem 1rem 1.5rem;
+  position: relative;
+  outline:none;
+}
+
+.history__report-check button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f061";
+  position: relative;
+  left: 26%;
+  font-size: 1rem;
+}
+
+/* FOOTER */
+footer{
+  padding: 3rem 2.5rem;
+}
+
+/* FOOTER LINKS */
+.footer__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 3rem;
+ 
+}
+
+.footer__links-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2e2c2c;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.footer__links ul {
+  list-style: none;
+}
+
+.footer__links a {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.36;
+  letter-spacing: normal;
+  color: #2e2c2c;
+  text-decoration: none;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.footer__links a:hover {
+  color: #e41a1a;
+  opacity: 1;
+}
+
+.footer__copy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2e2c2c;
+  margin-bottom: 2.3rem;
+}
+
+.footer__copy-text {
+  opacity: 0.5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2e2c2c;
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 900px){
+  html {
+    font-size: 59%;
+  }
+
+  .history__report{
+    justify-content: center;
+  }
+
+  .footer__links-div {
+    flex-basis: 50%;
+    text-align: center;
+  }
+
+  .footer__links ul{
+    margin-bottom: 2rem;
+  }
+  
+  .footer__copy {
+    text-align: center;
+  }
+
+  .car__body-type li {
+    flex-basis: 50%;
+  }
+  .slick-initialized .slick-slide {
+    margin: auto;
+  }
+
+  nav {
+    flex-basis: 34%;
+  }
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 780px){
+  html {
+    font-size: 56%;
+  }
+  .slide-item.slick-current.slick-active {
+    width: 40rem !important;
+  }
+  
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  h1 {
+    flex: 0 0 25.8%;
+  }
+
+  h3 {
+    margin-top: 7rem;
+  }
+  nav {
+    flex-basis: 60%;
+  }
+
+  .search {
+    order: 1;
+    flex-basis: 100%;
+    margin-top: 2rem;
+  }
+
+  .search__input {
+    margin-right: 0;
+    width: 50%;
+  }
+  .search__button {
+    margin-left: -3.5rem;
+  }
+
+  .findcar {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem 2rem;
+
+  }
+
+  .findcar__1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .findcar__2 {
+    display: none
+  }
+
+  .findcar__1 h2{
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .findcar__1--quote {
+    text-align: center;
+  }
+  .findcar__1--about {
+    text-align: center;
+  }
+
+  .history__report-check {
+    margin-left: 0;
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px){
+  html {
+    font-size: 51%;
+  }
+
+  h1 {
+    flex: 0 0 30.8%;
+  }
+
+  h1 a {
+    font-size: .8rem;
+  }
+  .findcar__1 h2 {
+    font-size: 2.8rem;
+  }
+  header {
+    padding: 1.2rem 1rem;
+  }
+  .car__body-type li {
+    flex-basis: 100%;
+  }
+  .car__body-type {
+    justify-content: center;
+    align-items: center;
+  }
+
+  h5 {
+    font-size: 2.1rem;
+  }
+  .history__report-check {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  .footer__links {
+    justify-content: center;
+  }
+  .footer__links-div {
+    flex-basis: 100%;
+  }
+
+  nav {
+    flex-basis: 65%;
+  }
+}
